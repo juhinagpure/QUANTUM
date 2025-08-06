@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { FiChevronDown, FiChevronRight } from "react-icons/fi";
-import Container from "../container";
-
+import Container from "../Container";
 
 const newsData = [
   {
