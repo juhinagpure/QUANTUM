@@ -43,7 +43,7 @@ const FAQSection = () => {
         <div className="w-full flex flex-col items-start gap-14">
           {/* Heading */}
           <div className="w-full flex flex-col items-center gap-4">
-            <h2 className="text-center text-neutral-50 text-4xl md:text-6xl font-bold font-['IBM_Plex_Sans_Condensed'] uppercase">
+            <h2 className="text-center text-neutral-50 text-4xl md:text-6xl font-bold  uppercase">
               FAQ
             </h2>
             <div className="w-full h-[3px] bg-gradient-to-r from-stone-900 via-stone-500 to-stone-900" />

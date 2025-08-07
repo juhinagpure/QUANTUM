@@ -26,7 +26,7 @@
 
 //         {/* Text Block */}
 //         <div className="flex flex-col justify-center gap-8 p-6 lg:p-12">
-//           <h2 className="text-neutral-50 text-4xl md:text-5xl font-bold font-['IBM_Plex_Sans_Condensed'] uppercase leading-tight">
+//           <h2 className="text-neutral-50 text-4xl md:text-5xl font-bold  uppercase leading-tight">
 //             Why Choose Us
 //           </h2>
 
@@ -98,7 +98,7 @@ const WhyChooseUs = () => {
           viewport={{ once: false, amount: 0.3 }}
           className="flex flex-col justify-center gap-8 p-6 lg:p-12"
         >
-          <h2 className="text-neutral-50 text-4xl md:text-5xl font-bold font-['IBM_Plex_Sans_Condensed'] uppercase leading-tight">
+          <h2 className="text-neutral-50 text-4xl md:text-5xl font-bold  uppercase leading-tight">
             Why Choose Us
           </h2>
 

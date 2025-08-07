@@ -11,7 +11,7 @@ const servicesList = [
   {
     icon: <PiPencilLineDuotone />,
     label: "UI/UX DESIGN",
-    path: "/services/UserEx",
+    path: "/services/UiUx",
   },
   {
     icon: <IoCodeSlashOutline />,

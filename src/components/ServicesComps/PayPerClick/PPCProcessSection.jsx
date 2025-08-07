@@ -5,7 +5,7 @@
 //     <Container>
 //       <div className="w-full flex flex-col items-center gap-10 mt-10">
 //         {/* Heading */}
-//         <div className="text-center text-neutral-50 text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl font-bold font-['IBM_Plex_Sans_Condensed'] uppercase">
+//         <div className="text-center text-neutral-50 text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl font-bold  uppercase">
 //           Our SEO Process
 //         </div>
 
@@ -118,7 +118,7 @@ const SeoProcess = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.3 }}
-          className="text-center text-neutral-50 text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl font-bold font-['IBM_Plex_Sans_Condensed'] uppercase"
+          className="text-center text-neutral-50 text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl font-bold  uppercase"
         >
           Our PPC Process
         </motion.div>

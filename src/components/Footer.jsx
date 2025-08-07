@@ -79,7 +79,7 @@ const Footer = () => {
 
             <nav className="space-y-3">
               {[
-                { name: "UI/UX Design", href: "/services/UserEx" },
+                { name: "UI/UX Design", href: "/services/UiUx" },
                 { name: "Development", href: "/services/development" },
                 { name: "SEO", href: "/services/seo" },
                 {
