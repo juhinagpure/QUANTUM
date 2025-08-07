@@ -12,10 +12,10 @@ const Services = () => {
   ];
 
   return (
-    <div className="w-full px-4 py-12 sm:px-12 sm:pt-16 rounded-[36px]  flex flex-col items-center gap-16">
+    <div className="w-full px-4 py-12 sm:px-12 sm:pt-16 rounded-[36px] flex flex-col items-center gap-16">
       {/* Heading */}
       <div className="max-w-[1240px] flex flex-col items-center gap-4">
-        <h2 className="text-center text-neutral-50 text-4xl sm:text-5xl md:text-6xl font-bold  uppercase">
+        <h2 className="text-center text-neutral-50 text-4xl sm:text-5xl md:text-6xl font-bold uppercase">
           we design for
         </h2>
         <div className="w-full h-[3px] bg-gradient-to-r from-zinc-800 via-stone-500 to-zinc-800" />
@@ -26,7 +26,7 @@ const Services = () => {
         {services.map((item, index) => (
           <div
             key={index}
-            className="bg-stone-900 p-10 rounded-3xl flex flex-col items-center gap-9 hover:scale-105 transition-transform duration-300"
+            className="bg-zinc-800 p-10 rounded-3xl flex flex-col items-center gap-9 hover:scale-105 transition-transform duration-300"
           >
             <img
               src={item.gif}

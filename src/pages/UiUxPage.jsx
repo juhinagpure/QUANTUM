@@ -1,4 +1,5 @@
 import Footer from "../components/Footer";
+import CTA from "../components/ServicesComps/UiUx/CTA";
 import FAQSection from "../components/ServicesComps/UiUx/FAQ";
 import HeroSection from "../components/ServicesComps/UiUx/HeroSection";
 import IntroSection from "../components/ServicesComps/UiUx/IntroSection";
@@ -19,6 +20,7 @@ const UiUxPage = () => {
       <UiTools />
       <WhyChooseUs />
       <FAQSection />
+      <CTA />
       <Footer />
     </div>
   );
