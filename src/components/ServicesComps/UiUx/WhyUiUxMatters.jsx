@@ -1,103 +1,83 @@
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
-import checkIcon from "../../../assets/SeoAssets/star.svg"; // 👈 import your svg
-import bookImg from "../../../assets/uiuxAssets/img1.jpg";
+import starImg from "../../../assets/SeoAssets/star.svg"; // 👈 your star svg img
+import bookimg from "../../../assets/uiuxAssets/img1.jpg";
 import Container from "../../Container";
 
-const WhyUIUXMatters = () => {
+const WhyUiUxMatters = () => {
+  const features = [
+    "First impressions matter – great design builds trust instantly.",
+    "Seamless navigation keeps users engaged and reduces bounce rates.",
+    "Responsive layouts deliver smooth experiences across all devices.",
+    "User-centered design improves satisfaction and loyalty.",
+    "Intuitive interfaces simplify complex interactions.",
+  ];
+
   return (
-    <Container>
-      <motion.div
-        className="w-[1240px] inline-flex justify-start items-center mt-20"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        {/* Left Side */}
-        <motion.div
-          className="flex-1 h-[660px] px-14 py-14 bg-zinc-800 rounded-tl-[36px] rounded-bl-[36px] inline-flex flex-col justify-between items-center"
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <div className="w-[522px] flex flex-col justify-start items-center gap-14">
-            <div className="self-stretch justify-start text-neutral-50 text-5xl font-bold font-['IBM_Plex_Sans_Condensed'] uppercase leading-[57.60px]">
+    <div className="mt-24">
+      <Container>
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 bg-zinc-800 rounded-[36px] overflow-hidden">
+          {/* Text Block (LEFT) */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.3 }}
+            className="flex flex-col justify-center gap-8 p-6 lg:p-12 order-2 lg:order-1"
+          >
+            <h2 className="text-neutral-50 text-4xl md:text-5xl font-bold uppercase leading-tight">
               Why UI/UX Matters
-            </div>
+            </h2>
 
-            <div className="self-stretch flex flex-col justify-start items-start gap-9">
-              {/* Card 1 */}
-              <div className="self-stretch inline-flex justify-between items-start">
-                {/* 👇 SVG instead of bg-cyan-400 box */}
-                <img src={checkIcon} alt="check" className="w-6 h-6" />
-                <div className="w-[485px] inline-flex flex-col justify-center items-start gap-4">
-                  <div className="self-stretch justify-start text-neutral-50 text-3xl font-bold font-['Urbanist'] leading-10">
-                    First Impression Counts
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+              variants={{
+                visible: { transition: { staggerChildren: 0.1 } },
+                hidden: {},
+              }}
+              className="flex flex-col gap-6"
+            >
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="flex items-start gap-4"
+                >
+                  <div className="w-6 h-6 flex-shrink-0 mt-1">
+                    <img src={starImg} alt="star" className="w-6 h-6" />
                   </div>
-                  <div className="self-stretch justify-start text-neutral-50 text-lg font-normal font-['Urbanist'] leading-relaxed tracking-tight">
-                    94% of first impressions are design-related.
-                  </div>
-                </div>
-              </div>
+                  <p className="text-neutral-50 text-lg md:text-2xl leading-snug">
+                    {feature}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
 
-              {/* Card 2 */}
-              <div className="self-stretch inline-flex justify-between items-start">
-                <img src={checkIcon} alt="check" className="w-6 h-6" />
-                <div className="w-[485px] inline-flex flex-col justify-center items-start gap-4">
-                  <div className="self-stretch justify-start text-neutral-50 text-3xl font-bold font-['Urbanist'] leading-10">
-                    Better Conversion
-                  </div>
-                  <div className="self-stretch justify-start text-neutral-50 text-lg font-normal font-['Urbanist'] leading-relaxed tracking-tight">
-                    Great design improves user trust and boosts conversion
-                    rates.
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="self-stretch inline-flex justify-between items-start">
-                <img src={checkIcon} alt="check" className="w-6 h-6" />
-                <div className="w-[485px] inline-flex flex-col justify-center items-start gap-4">
-                  <div className="self-stretch justify-start text-neutral-50 text-3xl font-bold font-['Urbanist'] leading-10">
-                    Lower Bounce Rates
-                  </div>
-                  <div className="self-stretch justify-start text-neutral-50 text-lg font-normal font-['Urbanist'] leading-relaxed tracking-tight">
-                    Intuitive interfaces keep users engaged longer.
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 4 */}
-              <div className="self-stretch inline-flex justify-between items-start">
-                <img src={checkIcon} alt="check" className="w-6 h-6" />
-                <div className="w-[485px] inline-flex flex-col justify-center items-start gap-4">
-                  <div className="self-stretch justify-start text-neutral-50 text-3xl font-bold font-['Urbanist'] leading-10">
-                    Fewer Support Queries
-                  </div>
-                  <div className="self-stretch justify-start text-neutral-50 text-lg font-normal font-['Urbanist'] leading-relaxed tracking-tight">
-                    Simple flows mean less confusion and more satisfaction.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Right side image */}
-        <motion.img
-          className="w-[585px] h-[660px] rounded-tr-[36px] rounded-br-[36px]"
-          src={bookImg}
-          alt="UI/UX Illustration"
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: true }}
-        />
-      </motion.div>
-    </Container>
+          {/* Image Block (RIGHT) */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: false, amount: 0.3 }}
+            className="h-full order-1 lg:order-2"
+          >
+            <img
+              src={bookimg}
+              alt="Why UI/UX Matters"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </div>
+      </Container>
+    </div>
   );
 };
 
-export default WhyUIUXMatters;
+export default WhyUiUxMatters;
