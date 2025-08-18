@@ -24,9 +24,9 @@ const App = () => {
   // ✅ These routes should NOT have top padding
   const fullTopRoutes = [
     "/services/seo",
-    "/services/smm",
+    // "/services/smm",
     "/services/pay-per-click",
-    "/services/personal-branding",
+    // "/services/personal-branding",
     "/services/UiUx",
   ];
 
