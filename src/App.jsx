@@ -17,6 +17,8 @@ import PersonalBranding from "./components/ServicesComps/PersonalBranding/Person
 import SocialMedia from "./components/ServicesComps/SocialMedia/SocialMedia";
 import PayPerClickPage from "./pages/PayPerClickPage";
 import SearchEngine from "./pages/SearchEnginePage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 
 const App = () => {
   const location = useLocation();
@@ -45,6 +47,8 @@ const App = () => {
           <Route path="/contact" element={<ContactPage />} />
 
           <Route path="/career" element={<CareerPage />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/termsconditions" element={<TermsAndConditionsPage />} />
 
           {/* Services Routes */}
           <Route path="/services/development" element={<Development />} />

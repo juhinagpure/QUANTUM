@@ -32,15 +32,16 @@ const scaleIn = {
 };
 
 const websiteTools = [
-  { src: "/Smm/facebook.png", alt: "Facebook" },
-  { src: "/Smm/instagram.jpg", alt: "Instagram" },
-  { src: "/Smm/twitter.png", alt: "Twitter" },
-  { src: "/Smm/youtube.png", alt: "YouTube" },
-  { src: "/Smm/linkedin.png", alt: "LinkedIn" },
-  { src: "/Smm/medium.png", alt: "Medium" },
-  { src: "/Smm/wikipidia.png", alt: "Wikipidia" },
-  { src: "/Smm/safari.jpg", alt: "Browser" },
+  { src: "/Smm/facebook.webp", alt: "Facebook" },
+  { src: "/Smm/instagram.webp", alt: "Instagram" },
+  { src: "/Smm/twitter.webp", alt: "Twitter" },
+  { src: "/Smm/youtube.webp", alt: "YouTube" },
+  { src: "/Smm/linkedin.webp", alt: "LinkedIn" },
+  { src: "/Smm/medium.webp", alt: "Medium" },
+  { src: "/Smm/wikipidia.webp", alt: "Wikipidia" },
+  { src: "/Smm/safari.webp", alt: "Browser" },
 ];
+
 
 const features = [
   "Personalized Strategy",

@@ -64,9 +64,14 @@ const Hero = () => {
               We blend creativity, technology, and strategy to deliver powerful
               digital solutions.
             </p>
-            <button className="bg-cyan-300 transition text-black px-6 py-3 text-lg rounded-full font-semibold hover:bg-cyan-400">
-              Explore Services
-            </button>
+         <button
+  onClick={() => window.dispatchEvent(new Event("openServices"))}
+  className="hidden lg:inline-block bg-cyan-300 transition text-black px-6 py-3 text-lg rounded-full font-semibold hover:bg-cyan-400"
+>
+  Explore Services
+</button>
+
+
           </div>
 
           {/* Center Image with 3D Effect */}

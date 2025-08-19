@@ -7,29 +7,30 @@ const faqData = [
   {
     question: "What makes NKB Quantam Lab different from other agencies?",
     answer:
-      "We blend innovation with performance to deliver unique digital solutions tailored to your business needs.",
+      "At NKB Quantum Lab, we don’t just deliver services—we craft digital experiences. Our unique blend of innovation, data-driven strategies, and creative design ensures that every solution is not only effective but also tailored to set your business apart from the competition.",
   },
   {
     question: "Do you offer personalised solutions for every business?",
     answer:
-      "Yes, we customize our services based on each client's specific goals, industry, and audience.",
+      "Absolutely! Every business is unique, and so are its challenges. We take the time to understand your goals, target audience, and industry landscape, then build strategies and solutions that are specifically designed to help you succeed.",
   },
   {
     question: "What kind of support do you provide after project completion?",
     answer:
-      "We provide continuous support, maintenance, and updates to ensure your product stays relevant and effective.",
+      "Our work doesn’t end at delivery. We offer ongoing support, regular maintenance, and timely updates to keep your product secure, functional, and aligned with the latest trends—ensuring long-term success and peace of mind.",
   },
   {
     question: "What if I face issues or need changes later?",
     answer:
-      "You can reach out anytime, and we'll assist with updates, bug fixes, or enhancements promptly.",
+      "No worries! You can reach out to us anytime. Whether it’s bug fixes, design tweaks, or feature enhancements, we’re committed to providing quick resolutions and continuous improvements whenever you need them.",
   },
   {
     question: "Do you offer training or documentation?",
     answer:
-      "Yes, we provide comprehensive documentation and training sessions for your team to use the product efficiently.",
+      "Yes, we make sure you and your team feel confident using the product. Along with detailed documentation, we also provide step-by-step training sessions so your team can manage, update, and scale the solution with ease.",
   },
 ];
+
 
 const NewsFaqSection = () => {
   const [startIndex, setStartIndex] = useState(0);
@@ -305,43 +306,50 @@ const NewsFaqSection = () => {
 
         {/* FAQ SECTION */}
         <section className="space-y-8">
-          <div>
-            <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[64px] 2xl:text-[56px] font-bold leading-tight tracking-[-0.02em] uppercase mb-2 whitespace-nowrap">
-              FAQ'S
-            </h1>
+  <div>
+    <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[64px] 2xl:text-[56px] font-bold leading-tight tracking-[-0.02em] uppercase mb-2 whitespace-nowrap">
+      FAQ'S
+    </h1>
 
-            <span className="block mt-1 h-[2px] w-full bg-gradient-to-r from-white via-white/50 to-white/10 animate-shine" />
+    <span className="block mt-1 h-[2px] w-full bg-gradient-to-r from-white via-white/50 to-white/10 animate-shine" />
+  </div>
+
+  <div className="space-y-4">
+    {faqData.map((faq, idx) => (
+      <div
+        key={idx}
+        className="border border-[#666666] rounded-3xl bg-[#171717] overflow-hidden transition"
+      >
+        <div
+          className="flex justify-between items-center px-4 sm:px-6 py-6 sm:py-8 cursor-pointer hover:bg-[#1a1a1a] transition"
+          onClick={() => toggleFaq(idx)}
+        >
+          {/* Added padding-right to prevent overlap */}
+          <p className="text-base sm:text-lg md:text-xl font-medium pr-4 sm:pr-6">
+            {faq.question}
+          </p>
+
+          {openIndex === idx ? (
+            <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full border border-gray-500 shrink-0">
+              <FiChevronDown className="text-lg sm:text-xl" />
+            </div>
+          ) : (
+            <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full border border-gray-500 shrink-0">
+              <FiChevronRight className="text-lg sm:text-xl" />
+            </div>
+          )}
+        </div>
+
+        {openIndex === idx && (
+          <div className="px-4 sm:px-6 pb-4 text-sm text-gray-400">
+            {faq.answer}
           </div>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
 
-          <div className="space-y-4">
-            {faqData.map((faq, idx) => (
-              <div
-                key={idx}
-                className="border border-[#666666] rounded-3xl bg-[#171717] overflow-hidden transition"
-              >
-                <div
-                  className="flex justify-between items-center px-4 sm:px-6 py-6 sm:py-8 cursor-pointer hover:bg-[#1a1a1a] transition"
-                  onClick={() => toggleFaq(idx)}
-                >
-                  <p className="text-base sm:text-lg md:text-xl font-medium">
-                    {faq.question}
-                  </p>
-                  {openIndex === idx ? (
-                    <FiChevronDown className="text-xl sm:text-2xl" />
-                  ) : (
-                    <FiChevronRight className="text-xl sm:text-2xl" />
-                  )}
-                </div>
-
-                {openIndex === idx && (
-                  <div className="px-4 sm:px-6 pb-4 text-sm text-gray-400">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
     </Container>
   );

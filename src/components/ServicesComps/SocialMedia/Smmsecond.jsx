@@ -42,14 +42,14 @@ const scaleIn = {
 };
 
 const websiteTools = [
-  { src: "/Smm/facebook.png", alt: "Facebook" },
-  { src: "/Smm/instagram.jpg", alt: "Instagram" },
-  { src: "/Smm/snap.png", alt: "Snapchat" },
-  { src: "/Smm/youtube.png", alt: "Youtube" },
-  { src: "/Smm/pintrest.png", alt: "Pintrest" },
-  { src: "/Smm/twitter.png", alt: "Twitter" },
-  { src: "/Smm/linkedin.png", alt: "Linkedin" },
-  { src: "/Smm/discord.png", alt: "Discord" },
+  { src: "/Smm/facebook.webp", alt: "Facebook" },
+  { src: "/Smm/instagram.webp", alt: "Instagram" },
+  { src: "/Smm/snap.webp", alt: "Snapchat" },
+  { src: "/Smm/youtube.webp", alt: "Youtube" },
+  { src: "/Smm/pintrest.webp", alt: "Pintrest" },
+  { src: "/Smm/twitter.webp", alt: "Twitter" },
+  { src: "/Smm/linkedin.webp", alt: "Linkedin" },
+  { src: "/Smm/discord.webp", alt: "Discord" },
 ];
 
 const features = [
@@ -64,25 +64,31 @@ const features = [
 const faqData = [
   {
     question: "How often will you post?",
-    answer: "We usually post 3–5 times per week, but it can be customized based on your needs.",
+    answer:
+      "We usually post 3–5 times per week to keep your audience consistently engaged. However, the posting frequency can be fully customized depending on your goals, audience activity, and content strategy.",
   },
   {
     question: "Can I approve content before it's posted?",
-    answer: "Yes, you'll get to review and approve all content before we publish it.",
+    answer:
+      "Yes, absolutely. You’ll always have the chance to review and approve all graphics, captions, and posts before we publish them, ensuring everything matches your brand voice and vision.",
   },
   {
     question: "Do you create graphics and captions?",
-    answer: "Yes, we handle both the graphics and the captions for each post.",
+    answer:
+      "Yes, we handle both the visuals and the written content. Our team designs engaging graphics and crafts compelling captions tailored to your brand style and target audience.",
   },
   {
     question: "What if I don't have a social media presence yet?",
-    answer: "No problem! We can create and set up your accounts from scratch.",
+    answer:
+      "No problem at all! We can create and set up your social media accounts from scratch, design branded profile/cover images, and help you establish a consistent online identity.",
   },
   {
     question: "Do you run ads too?",
-    answer: "Yes, we also run and manage paid ads to boost your reach and engagement.",
+    answer:
+      "Yes, we also plan, run, and manage paid ad campaigns. From audience targeting to performance tracking, we ensure your ads maximize reach, engagement, and conversions.",
   },
 ];
+
 
 const Smmsecond = () => {
   const [openIndex, setOpenIndex] = React.useState(null);
@@ -170,7 +176,7 @@ const Smmsecond = () => {
           {/* Image */}
           <div className="w-full aspect-[4/3] lg:h-full">
             <motion.img
-              src="/Smm/smmcard2.jpg"
+              src="/Smm/smmcard2.webp"
               alt="Why Choose Us"
               className="w-full h-full object-cover"
               initial={{ opacity: 0 }}

@@ -193,7 +193,7 @@ const Smm = () => {
               viewport={{ once: true }}
             >
               <img
-                src="/Smm/smmcard1.jpg"
+                src="/Smm/smmcard1.webp"
                 alt="What We Offer"
                 className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
               />

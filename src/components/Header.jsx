@@ -66,7 +66,6 @@ const Header = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Close mobile menu if clicked outside
       if (
         isOpen &&
         !event.target.closest(".mobile-menu") &&
@@ -75,8 +74,7 @@ const Header = () => {
         setIsOpen(false);
         setServicesOpen(false);
       }
-      
-      // Close services dropdown if clicked outside
+
       if (
         servicesOpen &&
         servicesRef.current &&
@@ -94,10 +92,21 @@ const Header = () => {
     };
   }, [isOpen, servicesOpen]);
 
-  // Close services dropdown when location changes
   useEffect(() => {
     setServicesOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    const openServicesHandler = () => {
+      setServicesOpen(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    window.addEventListener("openServices", openServicesHandler);
+    return () => {
+      window.addEventListener("openServices", openServicesHandler);
+    };
+  }, []);
 
   return (
     <>
@@ -109,17 +118,18 @@ const Header = () => {
                 <Link to="/" className="flex items-center cursor-pointer">
                   <div className="flex flex-col justify-center items-center">
                     <div className="inline-flex flex-col justify-center items-start gap-0.5">
-                      <div className="justify-start text-cyan-400 text-5xl font-black">
+                      <div className="justify-start text-2xl xs:text-3xl sm:text-3.5xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-black 
+                        bg-gradient-to-t
+                        from-[#0d338f] from-[11%]
+                        via-[#00ffff] via-[60%]
+                        to-[#00ffff]/0 to-[300%]
+                        bg-clip-text text-transparent
+                      ">
                         NKB
                       </div>
-                      <div className="justify-start">
-                        <span className="text-white text-sm font-bold">
-                          Quantum
-                        </span>
-                        <span className="text-white text-sm font-normal">
-                          {" "}
-                          Labs
-                        </span>
+                      <div className="justify-start text-[0.65rem] xs:text-xs sm:text-sm md:text-base lg:text-base xl:text-lg">
+                        <span className="text-white font-bold">Quantum</span>
+                        <span className="text-white font-normal"> Labs</span>
                       </div>
                     </div>
                   </div>
@@ -167,7 +177,7 @@ const Header = () => {
                     </button>
 
                     {servicesOpen && (
-                      <div 
+                      <div
                         ref={servicesRef}
                         className="absolute left-1/2 transform -translate-x-1/2 top-10 mt-6 w-[95vw] max-w-[1200px] bg-[#252525] backdrop-blur-md rounded-[3rem] shadow-xl border border-white/10 z-50 px-6 py-10 overflow-x-hidden"
                       >
@@ -291,10 +301,7 @@ const Header = () => {
               </button>
 
               {servicesOpen && (
-                <div 
-                  ref={servicesRef}
-                  className="grid grid-cols-2 gap-4 mt-4"
-                >
+                <div ref={servicesRef} className="grid grid-cols-2 gap-4 mt-4">
                   {servicesList.map((item, index) => (
                     <div
                       key={index}
