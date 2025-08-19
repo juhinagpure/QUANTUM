@@ -4,19 +4,18 @@ import { useRef } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import Container from "../Container";
 
-// Import your local images
-import AmanImg from "../../assets/Experts/Aman.jpg";
-import AryanImg from "../../assets/Experts/Aryan.jpg";
-import AshwetImg from "../../assets/Experts/Ashwet.jpg";
-import AyushiImg from "../../assets/Experts/Ayushi.jpg";
-import HarshalImg from "../../assets/Experts/Harshal.jpg";
-import Juhi1Img from "../../assets/Experts/Juhi1.jpg";
-import OmImg from "../../assets/Experts/Om.jpg";
-import PoojaImg from "../../assets/Experts/Pooja.jpg";
-import SachinImg from "../../assets/Experts/Sachin.jpg";
-import ShriImg from "../../assets/Experts/Shri.jpg";
-import SuhasImg from "../../assets/Experts/Suhas.jpg";
-import VaibhavImg from "../../assets/Experts/Vaibhav.jpg";
+import AmanImg from "../../assets/Experts/Aman.webp";
+import AryanImg from "../../assets/Experts/Aryan.webp";
+import AshwetImg from "../../assets/Experts/Ashwet.webp";
+import AyushiImg from "../../assets/Experts/Ayushi.webp";
+import HarshalImg from "../../assets/Experts/Harshal.webp";
+import JuhiImg from "../../assets/Experts/Juhi1.webp";
+import OmImg from "../../assets/Experts/Om.webp";
+import PoojaImg from "../../assets/Experts/Pooja.webp";
+import SachinImg from "../../assets/Experts/Sachin.webp";
+import ShriImg from "../../assets/Experts/Shri.webp";
+import SuhasImg from "../../assets/Experts/Suhas.webp";
+import VaibhavImg from "../../assets/Experts/Vaibhav.webp";
 
 const experts = [
   {
@@ -46,7 +45,7 @@ const experts = [
   {
     name: "Juhi Nagpure",
     role: "Frontend Developer",
-    image: Juhi1Img,
+    image: JuhiImg,
     linkedin: "https://www.linkedin.com/in/juhi-nagpure-38108b21b/",
   },
   {
