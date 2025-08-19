@@ -154,7 +154,7 @@ const Footer = () => {
                   href="mailto:support@nkbquantumlabs.com"
                   className="text-base font-medium text-neutral-50 hover:text-cyan-400 transition-colors"
                 >
-                  support@nkbquantumlabs.com
+                  nkb@gmail.com
                 </a>
               </div>
             </div>

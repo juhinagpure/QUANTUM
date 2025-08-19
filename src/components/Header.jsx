@@ -1,5 +1,5 @@
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { IoCodeSlashOutline } from "react-icons/io5";
@@ -45,6 +45,8 @@ const Header = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const servicesRef = useRef(null);
+  const servicesButtonRef = useRef(null);
 
   const toggleMenu = (e) => {
     e.stopPropagation();
@@ -64,6 +66,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Close mobile menu if clicked outside
       if (
         isOpen &&
         !event.target.closest(".mobile-menu") &&
@@ -72,14 +75,29 @@ const Header = () => {
         setIsOpen(false);
         setServicesOpen(false);
       }
+      
+      // Close services dropdown if clicked outside
+      if (
+        servicesOpen &&
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target) &&
+        servicesButtonRef.current &&
+        !servicesButtonRef.current.contains(event.target)
+      ) {
+        setServicesOpen(false);
+      }
     };
 
-    if (isOpen) {
-      document.addEventListener("click", handleClickOutside);
-    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, servicesOpen]);
 
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [isOpen]);
+  // Close services dropdown when location changes
+  useEffect(() => {
+    setServicesOpen(false);
+  }, [location]);
 
   return (
     <>
@@ -132,9 +150,10 @@ const Header = () => {
 
                   <div className="relative">
                     <button
+                      ref={servicesButtonRef}
                       onClick={toggleServices}
                       className={`flex items-center gap-2 transition-all duration-300 hover:text-cyan-400 ${
-                        location.pathname === "/services"
+                        location.pathname.startsWith("/services")
                           ? "font-bold text-cyan-400 text-xl xl:text-2xl"
                           : "text-neutral-50 font-medium text-lg xl:text-xl"
                       }`}
@@ -148,7 +167,10 @@ const Header = () => {
                     </button>
 
                     {servicesOpen && (
-                      <div className="absolute left-1/2 transform -translate-x-1/2 top-10 mt-6 w-[95vw] max-w-[1200px] bg-[#252525] backdrop-blur-md rounded-[3rem] shadow-xl border border-white/10 z-50 px-6 py-10 overflow-x-hidden">
+                      <div 
+                        ref={servicesRef}
+                        className="absolute left-1/2 transform -translate-x-1/2 top-10 mt-6 w-[95vw] max-w-[1200px] bg-[#252525] backdrop-blur-md rounded-[3rem] shadow-xl border border-white/10 z-50 px-6 py-10 overflow-x-hidden"
+                      >
                         <h3 className="text-white text-2xl mb-4 text-center">
                           SERVICES
                         </h3>
@@ -173,16 +195,14 @@ const Header = () => {
                     )}
                   </div>
 
-                  <Link
-                    to="/blog"
-                    className={`transition-all duration-300 hover:text-cyan-400 ${
-                      location.pathname === "/blog"
-                        ? "font-bold text-cyan-400 text-xl xl:text-2xl"
-                        : "text-neutral-50 font-medium text-lg xl:text-xl"
-                    }`}
+                  <a
+                    href="https://blog.nkbquantumlabs.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-all duration-300 hover:text-cyan-400 text-neutral-50 font-medium text-lg xl:text-xl"
                   >
                     Blogs
-                  </Link>
+                  </a>
                 </nav>
 
                 <div className="hidden lg:flex">
@@ -258,6 +278,7 @@ const Header = () => {
               </Link>
 
               <button
+                ref={servicesButtonRef}
                 onClick={toggleServices}
                 className="w-full flex items-center justify-between text-white hover:text-cyan-400 text-lg font-medium"
               >
@@ -270,7 +291,10 @@ const Header = () => {
               </button>
 
               {servicesOpen && (
-                <div className="grid grid-cols-2 gap-4 mt-4">
+                <div 
+                  ref={servicesRef}
+                  className="grid grid-cols-2 gap-4 mt-4"
+                >
                   {servicesList.map((item, index) => (
                     <div
                       key={index}

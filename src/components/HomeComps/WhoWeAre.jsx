@@ -9,7 +9,7 @@ const WhoWeAre = () => {
         {/* Left Content */}
         <div className="w-full lg:w-1/2 max-w-2xl 2xl:w-[60%]">
           <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[64px] 2xl:text-[56px] font-bold leading-[110%] tracking-[-0.02em] uppercase mb-6 text-center lg:text-left lg:whitespace-nowrap">
-            WHO WE ARE
+            WHAT WE DO
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg 2xl:text-2xl font-light text-gray-300 leading-relaxed mb-8 text-center lg:text-left">

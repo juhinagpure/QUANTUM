@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars */
+import React from 'react';
 import { motion } from "framer-motion";
 import { PiStarFourFill } from "react-icons/pi";
-import DevV from "../../../assets/DevV.mp4";
+import DevV from "/Dev/DevV.mp4";
 import Container from "../../Container";
 import Tools from "./Tools";
 
@@ -170,7 +170,7 @@ const Development = () => {
                   ))}
                 </div>
                 <h2 className="text-2xl sm:text-3xl md:text-[1.8rem] lg:text-3xl font-semibold text-white leading-snug">
-                  App & Website <br /> Development That <br /> Brings Your
+                  App & Website Development That  Brings Your
                   Vision
                   <br /> to Life
                 </h2>
@@ -249,7 +249,7 @@ const Development = () => {
                 viewport={{ once: false }}
               >
                 <img
-                  src="/tools/whatweoffer.jpg"
+                  src="/Dev/whatweoffer.jpg"
                   alt="What We Offer"
                   className="w-full h-full object-cover object-[25%_center]"
                 />

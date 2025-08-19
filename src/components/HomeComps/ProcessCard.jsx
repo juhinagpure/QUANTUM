@@ -119,7 +119,7 @@ const ProcessCard = () => {
     <Container>
       <div className="w-full text-white">
         <div className="w-full max-w-[1400px] mx-auto py-10 px-4">
-          <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[64px] 2xl:text-[56px] font-bold leading-tight tracking-[-0.02em] uppercase mb-2 whitespace-nowrap">
+          <h1 className="text-3xl sm:text-[36px] md:text-[48px] lg:text-[64px] 2xl:text-[56px] font-bold leading-tight tracking-[-0.02em] uppercase mb-2 whitespace-nowrap">
             OUR 6-D PROCESS
           </h1>
 

@@ -57,8 +57,8 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 px-6 lg:px-12 py-10">
           {/* Left Text */}
           <div className="flex-1 min-w-[280px] text-center lg:text-left">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-              Service <br /> Beyond <br /> Standards
+            <h1 className="text-3xl lg:text-6xl font-bold mb-6 leading-tight">
+              Service  Beyond Standards
             </h1>
             <p className="text-lg lg:text-xl text-gray-300 max-w-md mb-6 leading-relaxed mx-auto lg:mx-0">
               We blend creativity, technology, and strategy to deliver powerful

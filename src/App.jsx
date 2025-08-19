@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import ScrollToTop from "./ScrollToTop";
 
 import AboutUs from "./pages/AboutUsPage";
-import BlogPage from "./pages/BlogPage";
+
 import CareerPage from "./pages/CareersPage";
 import ContactPage from "./pages/ContactPage";
 import HomePage from "./pages/HomePage";
@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/blog" element={<BlogPage />} />
+
           <Route path="/career" element={<CareerPage />} />
 
           {/* Services Routes */}

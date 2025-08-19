@@ -1,10 +1,32 @@
+
 // eslint-disable-next-line no-unused-vars
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, PhoneCall } from "lucide-react";
+import { FaChevronUp } from "react-icons/fa";
 import Container from "../Container";
 import Footer from "../Footer";
 
 export function ContactComp() {
+  // State for dropdown open/close and selected option
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("");
+const [hoveredOption, setHoveredOption] = useState(null);
+  // Dropdown options
+  const options = [
+    { value: "", label: "Type of enquiry" },
+    { value: "general", label: "General Inquiry" },
+    { value: "business", label: "Business Partnership" },
+    { value: "support", label: "Technical Support" },
+    { value: "career", label: "Career Opportunities" },
+    { value: "other", label: "Other" },
+  ];
+
+  // Set the first option as selected by default
+  useEffect(() => {
+    setSelectedOption(options[0].value);
+  }, []);
+
   // Animation variants
   const ContainerVariants = {
     hidden: { opacity: 0 },
@@ -75,6 +97,24 @@ export function ContactComp() {
         ease: "easeOut",
       },
     },
+  };
+
+  const dropdownVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  // Handle dropdown option selection
+  const handleOptionSelect = (value, label) => {
+    setSelectedOption(value);
+    setIsDropdownOpen(false);
   };
 
   return (
@@ -171,27 +211,6 @@ export function ContactComp() {
               viewport={{ once: true }}
               className="flex flex-col gap-3 xs:gap-4 sm:gap-6"
             >
-              {/* Type of enquiry dropdown */}
-              <motion.div variants={itemVariants} className="relative">
-                <motion.select
-                  whileHover={{ scale: 1.02 }}
-                  whileFocus={{ scale: 1.02 }}
-                  className="w-full h-12 xs:h-14 sm:h-16 px-4 xs:px-6 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
-                >
-                  <option value="">Type of enquiry</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="business">Business Partnership</option>
-                  <option value="support">Technical Support</option>
-                  <option value="career">Career Opportunities</option>
-                  <option value="other">Other</option>
-                </motion.select>
-                <div className="absolute right-4 xs:right-6 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                  <div className="size-4 xs:size-5 sm:size-6 relative overflow-hidden">
-                    <div className="w-2 xs:w-2.5 h-1 xs:h-[5px] left-[6px] xs:left-[7px] top-[7px] xs:top-[9px] absolute outline outline-2 outline-offset-[-1px] outline-zinc-800" />
-                  </div>
-                </div>
-              </motion.div>
-
               {/* Name */}
               <motion.input
                 variants={itemVariants}
@@ -212,16 +231,69 @@ export function ContactComp() {
                   whileFocus={{ scale: 1.02 }}
                   type="email"
                   placeholder="Email Address"
-                  className="flex-1 h-12 xs:h-14 sm:h-16 px-4 xs:px-6 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
+                  className="w-full sm:flex-1 h-12 xs:h-14 sm:h-16 px-4 xs:px-6 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
                 />
                 <motion.input
                   whileHover={{ scale: 1.02 }}
                   whileFocus={{ scale: 1.02 }}
                   type="tel"
                   placeholder="Phone Number"
-                  className="flex-1 h-12 xs:h-14 sm:h-16 px-4 xs:px-6 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
+                  className="w-full sm:flex-1 h-12 xs:h-14 sm:h-16 px-4 xs:px-6 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
                 />
               </motion.div>
+
+              {/* Type of enquiry dropdown */}
+<motion.div variants={itemVariants} className="relative">
+  <motion.div
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 1.02 }}
+    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+    className="w-full h-12 xs:h-14 sm:h-16 px-4 xs:px-6 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider cursor-pointer focus:outline-none focus:ring-2 focus:ring-06b5d4bdtransition-all duration-300 flex items-center justify-between pr-10"
+  >
+    <span>{options.find(opt => opt.value === selectedOption)?.label || "Type of enquiry"}</span>
+    <motion.div
+    className="
+  absolute 
+  right-6 sm:right-8   /* mobile: right-6, desktop: right-8 */
+  top-[calc(50%-6px)] sm:top-[calc(50%-8px)] /* mobile slightly higher */
+  transform -translate-y-1/2 
+  pointer-events-none
+"
+
+      animate={{ rotate: isDropdownOpen ? 0 : 180 }}
+      transition={{ duration: 0.2 }}
+    >
+      <FaChevronUp className="text-stone-500 w-4 xs:w-5 h-4 xs:h-5" />
+    </motion.div>
+  </motion.div>
+  {isDropdownOpen && (
+    <motion.div
+      variants={dropdownVariants}
+      initial="hidden"
+      animate="visible"
+      className="absolute w-full mt-1 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] lg:rounded-lg shadow-lg z-10 overflow-hidden"
+    >
+      {options.map((option) => (
+        <motion.div
+          key={option.value}
+          whileHover={{ backgroundColor: "#5acfe47c", color: "#ffffff" }}
+          onHoverStart={() => setHoveredOption(option.value)}
+          onHoverEnd={() => setHoveredOption(null)}
+          onClick={() => handleOptionSelect(option.value, option.label)}
+          className={`px-4 xs:px-6 py-2 text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider cursor-pointer transition-colors duration-200 ${
+            (hoveredOption === option.value) 
+              ? "bg-cyan-400 text-white" 
+              : (selectedOption === option.value && !hoveredOption) 
+                ? "bg-cyan-400 text-white" 
+                : "hover:bg-cyan-400 hover:text-white"
+          }`}
+        >
+          {option.label}
+        </motion.div>
+      ))}
+    </motion.div>
+  )}
+</motion.div>
 
               {/* Job Title and Organisation */}
               <motion.div
@@ -233,14 +305,14 @@ export function ContactComp() {
                   whileFocus={{ scale: 1.02 }}
                   type="text"
                   placeholder="Job Title"
-                  className="flex-1 h-12 xs:h-14 sm:h-16 px-4 xs:px-6 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
+                  className="w-full sm:flex-1 h-12 xs:h-14 sm:h-16 px-4 xs:px-6 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
                 />
                 <motion.input
                   whileHover={{ scale: 1.02 }}
                   whileFocus={{ scale: 1.02 }}
                   type="text"
                   placeholder="Organisation"
-                  className="flex-1 h-12 xs:h-14 sm:h-16 px-4 xs:px-6 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
+                  className="w-full sm:flex-1 h-12 xs:h-14 sm:h-16 px-4 xs:px-6 bg-neutral-50 rounded-2xl xs:rounded-3xl sm:rounded-[36px] text-stone-500 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wider placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300"
                 />
               </motion.div>
 
@@ -472,7 +544,7 @@ export function ContactComp() {
           viewport={{ once: true }}
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
-          className="w-full h-[200px] xs:h-[250px] sm:h-[297px] rounded-lg xs:rounded-xl sm:rounded-[25px] overflow-hidden mb-8 xs:mb-10 sm:mb-12 bg-transparent mx-4 sm:mx-6 lg:mx-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+          className="w-full h-[200px] xs:h-[250px] sm:h-[297px] rounded-lg xs:rounded-xl sm:rounded-[25px] overflow-hidden mb-8 xs:mb-10 sm:mb-12 bg-transparent mx-auto shadow-lg hover:shadow-2xl transition-shadow duration-300 max-w-[95%]"
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29775.993077626787!2d79.01684628544261!3d21.11260067348707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4bf6689246e49%3A0xafc577ad7f9dfbec!2sNKB%20QUANTUM%20LABS!5e0!3m2!1sen!2sin!4v1753853608187!5m2!1sen!2sin"
