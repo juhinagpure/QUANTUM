@@ -173,7 +173,7 @@ import AyushiImg from "../../assets/Experts/Ayushi.jpg";
 import HarshalImg from "../../assets/Experts/Harshal.jpg";
 import Juhi1Img from "../../assets/Experts/Juhi1.jpg";
 import OmImg from "../../assets/Experts/Om.jpg";
-import PoojaImg from "../../assets/Experts/pooja.jpg";
+import PoojaImg from "../../assets/Experts/Pooja.jpg";
 import SachinImg from "../../assets/Experts/Sachin.jpg";
 import ShriImg from "../../assets/Experts/Shri.jpg";
 import SuhasImg from "../../assets/Experts/Suhas.jpg";
