@@ -16,7 +16,7 @@ import PoojaImg from "../../assets/Experts/Pooja.jpg";
 import SachinImg from "../../assets/Experts/Sachin.jpg";
 import ShriImg from "../../assets/Experts/Shri.jpg";
 import SuhasImg from "../../assets/Experts/Suhas.jpg";
-import VaibhavImg from "../../assets/Experts/vaibhav.jpg";
+import VaibhavImg from "../../assets/Experts/Vaibhav.jpg";
 
 const experts = [
   {
