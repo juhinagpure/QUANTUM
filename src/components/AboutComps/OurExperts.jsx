@@ -12,7 +12,7 @@ import AyushiImg from "../../assets/Experts/Ayushi.jpg";
 import HarshalImg from "../../assets/Experts/Harshal.jpg";
 import Juhi1Img from "../../assets/Experts/Juhi1.jpg";
 import OmImg from "../../assets/Experts/Om.jpg";
-import PoojaImg from "../../assets/Experts/Pooja.jpg";
+// import PoojaImg from "../../assets/Experts/Pooja.jpg";
 import SachinImg from "../../assets/Experts/Sachin.jpg";
 import ShriImg from "../../assets/Experts/Shri.jpg";
 import SuhasImg from "../../assets/Experts/Suhas.jpg";
@@ -73,12 +73,12 @@ const experts = [
     image: AmanImg,
     linkedin: "https://www.linkedin.com/in/aman-sharma09/",
   },
-  {
-    name: "Pooja Biswas",
-    role: "Social Media Manager",
-    image: PoojaImg,
-    linkedin: "https://linkedin.com/in/pooja",
-  },
+  // {
+  //   name: "Pooja Biswas",
+  //   role: "Social Media Manager",
+  //   image: PoojaImg,
+  //   linkedin: "https://linkedin.com/in/pooja",
+  // },
   {
     name: "Shri Sarkar",
     role: "Copywriter",
